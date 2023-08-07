@@ -1,10 +1,10 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">Coffee IU App</h1>
+<h1 align="center">Pexel App</h1>
 
 <div align="center">
   <h3>
-    <a href="">
+    <a href="https://expo.dev/accounts/jean_carlos/projects/expo-gallery/builds/8f9e29f0-b57a-4609-818c-65e74b76c69a">
       Mobile
     </a>
   </h3>
@@ -22,7 +22,7 @@
 
 ## Overview
 
-![screenshot](https://raw.githubusercontent.com/jean-carlos-19/coffe-expo/master/assets/cover/Cover-github.png)
+![screenshot](https://res.cloudinary.com/dlwusojw2/image/upload/v1691441694/projects/Cover-github-PexelApp_qa9zwp.png)
 
 
 ### Built With
@@ -44,10 +44,10 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ gh repo clone https://github.com/jean-carlos-19/coffe-expo
+$ gh repo clone jean-carlos-19/pexel-app
 
 # Access to the mobile folder
-$ cd coffe-expo
+$ cd pexel-app
 
 # Install dependencies
 $ yarn install
