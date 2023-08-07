@@ -49,6 +49,11 @@ $ gh repo clone jean-carlos-19/pexel-app
 # Access to the mobile folder
 $ cd pexel-app
 
+# Create environment Variables in .env file
+
+$ PEXEL_API_KEY
+$ PEXEL_API_URL
+
 # Install dependencies
 $ yarn install
 
