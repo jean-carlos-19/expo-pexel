@@ -11,9 +11,18 @@
       "distribution": "internal",
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "PEXEL_API_KEY": "EQvFvaEwRfpWkTKk8mpzGX0Z0WpqiCyJI0sOuJyhalTtXBDlSL0lb7tI",
+        "PEXEL_API_URL": "https://api.pexels.com/v1/search"
       }
     },
-    "production": {}
+    "production": {
+      "env": {
+        "PEXEL_API_KEY": "EQvFvaEwRfpWkTKk8mpzGX0Z0WpqiCyJI0sOuJyhalTtXBDlSL0lb7tI",
+        "PEXEL_API_URL": "https://api.pexels.com/v1/search"
+      }
+    }
   },
   "submit": {
     "production": {}

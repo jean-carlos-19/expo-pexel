@@ -1,11 +1,11 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ImageBackground, ActivityIndicator } from 'react-native'
 import React from 'react'
 import { Avatar } from '@rneui/themed';
 import { RootStackParamList } from '@/types';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ArrowLeftCircleIcon, ArrowDownTrayIcon } from 'react-native-heroicons/solid'
 import { useNavigation } from '@react-navigation/native';
-import { useImagesPexel, useProfile } from '@/hooks';
+import { useImagesPexel, useLoading, useProfile } from '@/hooks';
 import { ImageList } from '@/atomic/component';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Image'>;
@@ -16,6 +16,7 @@ const ImageScreen = ({ route }: Props) => {
   const {handleProfile, handleDownload} = useProfile();
   const {photos} = useImagesPexel();
   const navigation = useNavigation();
+  const { loading, setLoading } = useLoading(true);
 
   return (
     <View className='flex-col gap-2'>
@@ -33,8 +34,8 @@ const ImageScreen = ({ route }: Props) => {
           />
         </View>
       </View>
-
-      <Image
+      <ImageBackground
+        className='h-[180] flex-col items-center justify-center'
         source={{
           uri: src.portrait
         }}
@@ -43,7 +44,13 @@ const ImageScreen = ({ route }: Props) => {
           borderBottomLeftRadius: 25,
           borderBottomRightRadius: 25,
         }}
-      />
+        onLoadEnd={() => setLoading(false)}
+        resizeMode='cover'
+      >
+        {
+          loading ? <ActivityIndicator size="large" color="#ede8e8" /> : null
+        }
+      </ImageBackground>
      
       <View
         className='p-2 flex-row justify-end items-center space-x-2'

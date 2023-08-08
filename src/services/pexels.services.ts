@@ -22,6 +22,13 @@ class PexelServices implements PexelController {
         );
     }
 
+    public nextPageImages = async (url:string):Promise<AxiosResponse<any, any>>=>  {
+        return await this.http.get(
+            url,
+            this.http.header(undefined,PEXEL_API_KEY)
+        );
+    }
+
 }
 
 export {PexelServices}

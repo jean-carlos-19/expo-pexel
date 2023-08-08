@@ -1,28 +1,35 @@
 import React from 'react'
-import { View, Image, TouchableOpacity } from 'react-native'
+import { ActivityIndicator, Image, ImageBackground, TouchableOpacity } from 'react-native'
 import { CardImageProps } from '@/types'
-import {useNavigation} from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
+import { useLoading } from '@/hooks'
 
-const CardImage = (props:CardImageProps) => {
-  
-  const {image} = props;
+const CardImage = (props: CardImageProps) => {
+
+  const { image } = props;
   const navigation = useNavigation();
+  const { loading, setLoading } = useLoading(true);
 
   return (
-    <TouchableOpacity 
-      className='m-2 w-[48%]  flex-row justify-between rounded-xl'
-      onPress={()=>navigation.navigate("Image",image)}
+    <TouchableOpacity
+      className='w-[50%] h-full flex-row justify-between rounded-xl'
+      onPress={() => navigation.navigate("Image", image)}
     >
-      <Image 
-        className='w-full h-[180]'
+      <ImageBackground
+        className='h-[180] flex-col items-center justify-center'
         source={{
-          uri:image.src.small && image.src.original 
+          uri: image.src.small && image.src.original
         }}
-        width={80}
-        height={80}
-      />
+        style={{ width: "100%",}}
+        onLoadEnd={() => setLoading(false)}
+        resizeMode='cover'
+      >
+        {
+          loading ? <ActivityIndicator size="large" color="#ede8e8" /> : null
+        }
+      </ImageBackground>
     </TouchableOpacity>
   )
 }
 
-export {CardImage}
+export { CardImage }
