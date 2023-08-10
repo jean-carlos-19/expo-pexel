@@ -25,7 +25,7 @@ const CardImage = (props: CardImageProps) => {
         resizeMode='cover'
       >
         {
-          loading ? <ActivityIndicator size="large" color="#ede8e8" /> : null
+          loading ? <ActivityIndicator size="large" color="#333" /> : null
         }
       </ImageBackground>
     </TouchableOpacity>
