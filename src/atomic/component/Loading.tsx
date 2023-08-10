@@ -1,6 +1,6 @@
-import React from 'react';
-import { ActivityIndicator, View, Text } from 'react-native';
-import { LoadingProps } from '@/types';
+import React from "react";
+import { ActivityIndicator, View, Text } from "react-native";
+import { LoadingProps } from "@/types";
 
 function Loading(props: LoadingProps) {
  const { state, sms } = props;

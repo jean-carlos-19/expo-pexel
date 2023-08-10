@@ -1,1 +1,1 @@
-export { PexelServices } from './pexels.services';
+export { PexelServices } from "./pexels.services";

@@ -1,16 +1,16 @@
-import { ModalProps } from '@/types';
-import React from 'react';
+import { ModalProps } from "@/types";
+import React from "react";
 import {
  TouchableOpacity,
  View,
  TextInput,
  Text,
  Dimensions,
-} from 'react-native';
+} from "react-native";
 
 const Modal = (props: ModalProps) => {
  const { value, isActiveModal, handleBlur, handleChangue, closeModal } = props;
- const { width, height } = Dimensions.get('screen');
+ const { width, height } = Dimensions.get("screen");
  return isActiveModal ? (
   <View
    style={{ width: width, height: height }}

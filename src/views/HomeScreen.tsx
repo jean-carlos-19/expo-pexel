@@ -1,10 +1,10 @@
-import React from 'react';
-import { View, Text, StatusBar, TouchableOpacity } from 'react-native';
-import { useImagesPexel, useSearchForm } from '@/hooks';
-import { ImageList, Loading, NavBar } from '@/atomic/component';
-import { SearchValidation } from '@/validation';
-import { Formik, FormikHelpers } from 'formik';
-import { SearchModel } from '@/models';
+import React from "react";
+import { View, Text, StatusBar, TouchableOpacity } from "react-native";
+import { useImagesPexel, useSearchForm } from "@/hooks";
+import { ImageList, Loading, NavBar } from "@/atomic/component";
+import { SearchValidation } from "@/validation";
+import { Formik } from "formik";
+import { SearchModel } from "@/models";
 
 const HomeScreen = () => {
  const { entity } = useSearchForm();
@@ -23,14 +23,11 @@ const HomeScreen = () => {
 
  return (
   <View className="w-full h-full">
-   <StatusBar backgroundColor={'white'} />
+   <StatusBar backgroundColor={"white"} />
    <Formik
     initialValues={entity}
     validationSchema={SearchValidation}
-    onSubmit={(
-     values: SearchModel,
-     formikHelpers: FormikHelpers<SearchModel>,
-    ): void | Promise<any> => {
+    onSubmit={(values: SearchModel): void => {
      fecthImages(values.search!);
     }}
    >
@@ -38,8 +35,8 @@ const HomeScreen = () => {
      return (
       <NavBar
        value={values.search}
-       handleBlur={handleBlur('search')}
-       handleChangue={handleChange('search')}
+       handleBlur={handleBlur("search")}
+       handleChangue={handleChange("search")}
        handleSubmit={handleSubmit}
       />
      );

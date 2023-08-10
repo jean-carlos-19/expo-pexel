@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const useSearch = () => {
  const [isActive, setActive] = useState(false);

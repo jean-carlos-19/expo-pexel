@@ -1,7 +1,7 @@
-import { PexelController } from '@/controllers';
-import { AxiosResponse } from 'axios';
-import { Http } from './http/http';
-import { PEXEL_API_KEY, PEXEL_API_URL } from '@env';
+import { PexelController } from "@/controllers";
+import { AxiosResponse } from "axios";
+import { Http } from "./http/http";
+import { PEXEL_API_KEY, PEXEL_API_URL } from "@env";
 
 class PexelServices implements PexelController {
  private static pexel: PexelServices;

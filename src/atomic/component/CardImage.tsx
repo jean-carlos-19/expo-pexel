@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 import {
  ActivityIndicator,
- Image,
  ImageBackground,
  TouchableOpacity,
-} from 'react-native';
-import { CardImageProps } from '@/types';
-import { useNavigation } from '@react-navigation/native';
-import { useLoading } from '@/hooks';
+} from "react-native";
+import { CardImageProps } from "@/types";
+import { useNavigation } from "@react-navigation/native";
+import { useLoading } from "@/hooks";
 
 const CardImage = (props: CardImageProps) => {
  const { image } = props;
@@ -17,14 +16,14 @@ const CardImage = (props: CardImageProps) => {
  return (
   <TouchableOpacity
    className="w-[50%] h-full flex-row justify-between rounded-xl"
-   onPress={() => navigation.navigate('Image', image)}
+   onPress={() => navigation.navigate("Image", image)}
   >
    <ImageBackground
     className="h-[180] flex-col items-center justify-center"
     source={{
      uri: image.src.small && image.src.original,
     }}
-    style={{ width: '100%' }}
+    style={{ width: "100%" }}
     onLoadEnd={() => setLoading(false)}
     resizeMode="cover"
    >

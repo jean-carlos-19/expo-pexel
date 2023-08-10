@@ -1,9 +1,9 @@
-import { useSearch } from '@/hooks';
-import React from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
-import { MagnifyingGlassIcon } from 'react-native-heroicons/solid';
-import { NavBarProps } from '@/types';
-import { Modal } from './Modal';
+import { useSearch } from "@/hooks";
+import React from "react";
+import { View, Image, Text, TouchableOpacity } from "react-native";
+import { MagnifyingGlassIcon } from "react-native-heroicons/solid";
+import { NavBarProps } from "@/types";
+import { Modal } from "./Modal";
 
 function NavBar(props: NavBarProps) {
  const { value, handleChangue, handleBlur, handleSubmit } = props;
@@ -16,14 +16,14 @@ function NavBar(props: NavBarProps) {
     <View className="flex-row items-center">
      <Image
       className="w-20 h-20"
-      source={require('../../assets/pexel-logo.png')}
+      source={require("../../assets/pexel-logo.png")}
       width={25}
       height={25}
      />
      <Text className="font-semibold text-xl">Pexels App</Text>
     </View>
     <TouchableOpacity onPress={() => setActive(!isActive)}>
-     <MagnifyingGlassIcon size={35} color={'black'} />
+     <MagnifyingGlassIcon size={35} color={"black"} />
     </TouchableOpacity>
    </View>
    <Modal

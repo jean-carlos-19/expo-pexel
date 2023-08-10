@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
-import { PhotoModel } from '@/models';
-import { PexelServices } from '@/services';
-import { AnimatableStringValue } from 'react-native';
+import { useCallback, useEffect, useState } from "react";
+import { PhotoModel } from "@/models";
+import { PexelServices } from "@/services";
+import { AnimatableStringValue } from "react-native";
 
 const useImagesPexel = () => {
  const services: PexelServices = PexelServices.getPexelServices();
@@ -9,12 +9,12 @@ const useImagesPexel = () => {
  const [loading, setLoading] = useState(false);
  const [search, setSearch] = useState<AnimatableStringValue>();
  const [result, setResult] = useState<number>();
- const [nextPage, setNextPage] = useState<string>('');
- const [prevPage, setPrevPage] = useState<string>('');
+ const [nextPage, setNextPage] = useState<string>("");
+ const [prevPage, setPrevPage] = useState<string>("");
  const [cont, setCont] = useState<number>(1);
 
  useEffect(() => {
-  fecthImages('people');
+  fecthImages("people");
  }, []);
 
  const fecthImages = useCallback(async (search: string) => {

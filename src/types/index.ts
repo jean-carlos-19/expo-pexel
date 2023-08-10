@@ -1,5 +1,5 @@
-import { PhotoModel } from '@/models';
-import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
+import { PhotoModel } from "@/models";
+import { NativeSyntheticEvent, TextInputFocusEventData } from "react-native";
 
 /* Props components Iu */
 interface ImageListProps {
@@ -11,7 +11,7 @@ interface CardImageProps {
 interface ModalProps {
  value: string | undefined;
  isActiveModal: boolean;
- handleChangue: (e: string | React.ChangeEvent<any>) => void;
+ handleChangue: (e: string | React.ChangeEvent) => void;
  handleBlur:
   | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
   | undefined;
@@ -19,7 +19,7 @@ interface ModalProps {
 }
 interface NavBarProps {
  value: string | undefined;
- handleChangue: (e: string | React.ChangeEvent<any>) => void;
+ handleChangue: (e: string | React.ChangeEvent) => void;
  handleBlur:
   | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
   | undefined;
