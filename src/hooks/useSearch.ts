@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-const useSearch =()=>{
+const useSearch = () => {
+ const [isActive, setActive] = useState(false);
 
-    const [isActive,setActive] = useState(false);
-
-    return {isActive, setActive};
-}
-export {useSearch}
+ return { isActive, setActive };
+};
+export { useSearch };

@@ -2,11 +2,41 @@
   "name": "expo-gallery",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
+  "keywords": [
+    "Expo",
+    "Expo File System",
+    "Expo Media Library",
+    "React Native",
+    "React Navigation",
+    "YupJs",
+    "Formik",
+    "Dot Env",
+    "Tailwind",
+    "NativeWind",
+    "Axios",
+    "Typescript"
+  ],
+  "demo": "https://piguavejc-portfolio-master.onrender.com/",
+  "author": {
+    "name": "Jean Carlos Piguave Alvarado",
+    "email": "piguavejc@gmail.com",
+    "url": "https://piguavesof.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jean-carlos-19/expo-pexel"
+  },
+  "config": {
+    "port": "3000"
+  },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json}",
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettier.json"
   },
   "dependencies": {
     "@react-navigation/native": "^6.1.7",
@@ -21,6 +51,7 @@
     "expo-web-browser": "~12.3.2",
     "formik": "^2.4.3",
     "nativewind": "^2.0.11",
+    "prettier": "^3.0.1",
     "react": "18.2.0",
     "react-native": "0.72.3",
     "react-native-dotenv": "^3.4.9",
@@ -38,9 +69,17 @@
     "@types/react": "~18.2.14",
     "@types/react-native-dotenv": "^0.2.0",
     "@types/react-native-vector-icons": "^6.4.13",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
     "babel-plugin-module-resolver": "^5.0.0",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-native": "^4.0.0",
     "tailwindcss": "3.3.2",
     "typescript": "^5.1.3"
   },
-  "private": true
+  "private": false
 }

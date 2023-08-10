@@ -1,40 +1,44 @@
-import { PhotoModel } from "@/models";
-import { NativeSyntheticEvent, TextInputFocusEventData } from "react-native";
+import { PhotoModel } from '@/models';
+import { NativeSyntheticEvent, TextInputFocusEventData } from 'react-native';
 
 /* Props components Iu */
 interface ImageListProps {
-    photos:PhotoModel[] | undefined
+ photos: PhotoModel[] | undefined;
 }
-interface CardImageProps{
-    image:PhotoModel
+interface CardImageProps {
+ image: PhotoModel;
 }
-interface ModalProps{
-    value:string | undefined,
-    isActiveModal:boolean,
-    handleChangue:(e: string | React.ChangeEvent<any>) => void,
-    handleBlur:((e: NativeSyntheticEvent<TextInputFocusEventData>) => void) | undefined,
-    closeModal:()=> void
+interface ModalProps {
+ value: string | undefined;
+ isActiveModal: boolean;
+ handleChangue: (e: string | React.ChangeEvent<any>) => void;
+ handleBlur:
+  | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
+  | undefined;
+ closeModal: () => void;
 }
-interface NavBarProps{
-    value:string | undefined,
-    handleChangue:(e: string | React.ChangeEvent<any>) => void,
-    handleBlur:((e: NativeSyntheticEvent<TextInputFocusEventData>) => void) | undefined,
-    handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void
+interface NavBarProps {
+ value: string | undefined;
+ handleChangue: (e: string | React.ChangeEvent<any>) => void;
+ handleBlur:
+  | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
+  | undefined;
+ handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
 }
-interface LoadingProps{
-    state:boolean,
-    sms:string
+interface LoadingProps {
+ state: boolean;
+ sms: string;
 }
 /* Rotes of app */
 type RootStackParamList = {
-    Home: undefined;
-    Image: PhotoModel
-  };
-export type { 
-    ImageListProps, 
-    CardImageProps,
-    RootStackParamList, 
-    ModalProps, 
-    NavBarProps,
-    LoadingProps
-}
+ Home: undefined;
+ Image: PhotoModel;
+};
+export type {
+ ImageListProps,
+ CardImageProps,
+ RootStackParamList,
+ ModalProps,
+ NavBarProps,
+ LoadingProps,
+};

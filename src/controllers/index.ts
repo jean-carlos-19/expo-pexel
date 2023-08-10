@@ -1,1 +1,1 @@
-export {PexelController} from "./pexels.controllers";
+export { PexelController } from './pexels.controllers';
