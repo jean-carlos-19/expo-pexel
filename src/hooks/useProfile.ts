@@ -1,10 +1,9 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import * as WebBrowser from "expo-web-browser";
 import * as FileSystem from "expo-file-system";
 import * as MediaLibrary from "expo-media-library";
 
 const useProfile = () => {
- const [urlImage,setUrlImage] = useState<string>();
  const handleProfile = useCallback(async (urlProfile: string) => {
   try {
    await WebBrowser.openBrowserAsync(urlProfile);
@@ -21,7 +20,7 @@ const useProfile = () => {
    console.log(error);
   }
  }, []);
- const saveFile = useCallback(async (fileUri: string) => {
+ const saveFile = async (fileUri: string) => {
   try {
    const { status } = await MediaLibrary.requestPermissionsAsync();
    if (status === "granted") {
@@ -31,7 +30,7 @@ const useProfile = () => {
   } catch (error) {
    console.log(error);
   }
- }, []);
+ };
  const handleDownload = (urlImage: string, id: string) => {
   handleFile(urlImage, id);
  };

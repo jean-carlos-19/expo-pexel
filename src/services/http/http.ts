@@ -1,17 +1,17 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 
 class Http {
- public post = async <T>(
+ public post = async (
   url: string,
-  body: any,
-  header: any,
- ): Promise<AxiosResponse<any, any>> => {
+  body: AxiosResponse,
+  header: AxiosRequestConfig,
+ ): Promise<AxiosResponse> => {
   return await axios.post(url, body, header);
  };
- public get = async <T>(
+ public get = async (
   url: string,
   header: AxiosRequestConfig,
- ): Promise<AxiosResponse<any, any>> => {
+ ): Promise<AxiosResponse> => {
   return await axios.get(url, header);
  };
  public header(

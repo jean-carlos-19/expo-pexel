@@ -14,16 +14,14 @@ class PexelServices implements PexelController {
   return this.pexel;
  }
 
- public getImages = async (query: string): Promise<AxiosResponse<any, any>> => {
+ public getImages = async (query: string): Promise<AxiosResponse> => {
   return await this.http.get(
    `${PEXEL_API_URL}?query=${query}`,
    this.http.header(undefined, PEXEL_API_KEY),
   );
  };
 
- public nextPageImages = async (
-  url: string,
- ): Promise<AxiosResponse<any, any>> => {
+ public nextPageImages = async (url: string): Promise<AxiosResponse> => {
   return await this.http.get(url, this.http.header(undefined, PEXEL_API_KEY));
  };
 }

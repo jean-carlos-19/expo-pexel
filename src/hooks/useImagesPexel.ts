@@ -1,38 +1,39 @@
 import { useCallback, useEffect, useState } from "react";
 import { PhotoModel } from "@/models";
 import { PexelServices } from "@/services";
-import { AnimatableStringValue } from "react-native";
+import { AxiosError } from "axios";
 
-const useImagesPexel = () => {
+const useImagesPexel = (target: string) => {
  const services: PexelServices = PexelServices.getPexelServices();
  const [photos, setPhotos] = useState<PhotoModel[]>();
  const [loading, setLoading] = useState(false);
- const [search, setSearch] = useState<AnimatableStringValue>();
+ const [search, setSearch] = useState<string>();
  const [result, setResult] = useState<number>();
  const [nextPage, setNextPage] = useState<string>("");
  const [prevPage, setPrevPage] = useState<string>("");
  const [cont, setCont] = useState<number>(1);
 
  useEffect(() => {
-  fecthImages("people");
- }, []);
+  setSearch(target);
+ }, [target]);
 
- const fecthImages = useCallback(async (search: string) => {
-  setSearch(search);
-  setLoading(true);
-  try {
-   const rs = await services.getImages(search);
-   setPhotos(rs.data?.photos);
-   setResult(rs.data?.total_results);
-   setNextPage(rs.data?.next_page);
-  } catch (error: any) {
-   // console.log(error?.response.headers)
-   console.log(error?.response.data);
-  }
-  setLoading(false);
- }, []);
+ const fecthImages = useCallback(
+  async (search: string) => {
+   setLoading(true);
+   try {
+    const rs = await services.getImages(search);
+    setPhotos(rs.data?.photos);
+    setResult(rs.data?.total_results);
+    setNextPage(rs.data?.next_page);
+   } catch (error) {
+    showError(error as AxiosError);
+   }
+   setLoading(false);
+  },
+  [services],
+ );
 
- const fecthImagesNextPage = useCallback(async (url: string) => {
+ const fecthImagesNextPage = async (url: string) => {
   setLoading(true);
   try {
    const rs = await services.nextPageImages(url);
@@ -41,13 +42,12 @@ const useImagesPexel = () => {
    setNextPage(rs.data?.next_page);
    setNextPage(rs.data?.prev_page);
    setCont(cont + 1);
-  } catch (error: any) {
-   // console.log(error?.response.headers)
-   console.log(error?.response.data);
+  } catch (error) {
+   showError(error as AxiosError);
   }
   setLoading(false);
- }, []);
- const fecthImagesPrevPage = useCallback(async (url: string) => {
+ };
+ const fecthImagesPrevPage = async (url: string) => {
   if (cont < 1) return;
 
   setLoading(true);
@@ -57,12 +57,15 @@ const useImagesPexel = () => {
    setResult(rs.data?.total_results);
    setPrevPage(rs.data?.prev_page);
    setCont(cont - 1);
-  } catch (error: any) {
-   // console.log(error?.response.headers)
-   console.log(error?.response.data);
+  } catch (error) {
+   showError(error as AxiosError);
   }
   setLoading(false);
- }, []);
+ };
+ const showError = (error: AxiosError) => {
+  console.log(error.response?.headers);
+  console.log(error.response?.data);
+ };
  return {
   photos,
   loading,

@@ -19,7 +19,7 @@ const HomeScreen = () => {
   fecthImagesPrevPage,
   fecthImagesNextPage,
   fecthImages,
- } = useImagesPexel();
+ } = useImagesPexel("people");
 
  return (
   <View className="w-full h-full">
