@@ -52,7 +52,8 @@ $ cd pexel-app
 # Create environment Variables in .env file
 
 $ PEXEL_API_KEY
-$ PEXEL_API_URL
+$ PEXEL_API_IMAGE_URL
+$ PEXEL_API_VIDEO_URL
 
 # Install dependencies
 $ yarn install

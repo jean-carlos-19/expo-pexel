@@ -14,13 +14,15 @@
       },
       "env": {
         "PEXEL_API_KEY": "EQvFvaEwRfpWkTKk8mpzGX0Z0WpqiCyJI0sOuJyhalTtXBDlSL0lb7tI",
-        "PEXEL_API_URL": "https://api.pexels.com/v1/search"
+        "PEXEL_API_IMAGE_URL": "https://api.pexels.com/v1/search",
+        "PEXEL_API_VIDEO_URL": "https://api.pexels.com/videos/search"
       }
     },
     "production": {
       "env": {
         "PEXEL_API_KEY": "EQvFvaEwRfpWkTKk8mpzGX0Z0WpqiCyJI0sOuJyhalTtXBDlSL0lb7tI",
-        "PEXEL_API_URL": "https://api.pexels.com/v1/search"
+        "PEXEL_API_IMAGE_URL": "https://api.pexels.com/v1/search",
+        "PEXEL_API_VIDEO_URL": "https://api.pexels.com/videos/search"
       }
     }
   },

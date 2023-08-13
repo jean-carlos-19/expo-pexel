@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
-import { PhotoModel } from "@/models";
+import { VideoModel } from "@/models";
 import { PexelServices } from "@/services";
 import { AxiosError } from "axios";
 
-const useImagesPexel = () => {
+const useVideoPexel = () => {
  const services: PexelServices = PexelServices.getPexelServices();
- const [photos, setPhotos] = useState<PhotoModel[]>();
+ const [videos, setVideos] = useState<VideoModel[]>();
  const [loading, setLoading] = useState(false);
  const [search, setSearch] = useState<string>();
  const [numsResults, setNumsResults] = useState<number>();
@@ -14,15 +14,15 @@ const useImagesPexel = () => {
  const [numPage, setNumPage] = useState<number>(0);
 
  useEffect(() => {
-  fecthImages("people");
+  fetchVideos("people");
  }, []);
 
- const fecthImages = useCallback(async (search: string) => {
+ const fetchVideos = useCallback(async (search: string) => {
   setLoading(true);
   setSearch(search);
   try {
-   const rs = await services.getImages(search);
-   setPhotos(rs.data?.photos);
+   const rs = await services.getVideos(search);
+   setVideos(rs.data?.videos);
    setNumsResults(rs.data?.total_results);
    setNextPage(rs.data?.next_page);
    setNumPage(rs.data?.page);
@@ -32,12 +32,12 @@ const useImagesPexel = () => {
   setLoading(false);
  }, []);
 
- const fecthImagesNextPage = useCallback(async (url: string | undefined) => {
+ const fetchVideosNextPage = useCallback(async (url: string | undefined) => {
   if (!url) return;
   setLoading(true);
   try {
-   const rs = await services.nextPageImages(url);
-   setPhotos(rs.data?.photos);
+   const rs = await services.nextPageVideos(url);
+   setVideos(rs.data?.videos);
    setNumsResults(rs.data?.total_results);
    setNextPage(rs.data?.next_page);
    setPrevPage(rs.data?.prev_page);
@@ -47,13 +47,14 @@ const useImagesPexel = () => {
   }
   setLoading(false);
  }, []);
- const fecthImagesPrevPage = useCallback(async (url: string | undefined) => {
+
+ const fetchVideosPrevPage = useCallback(async (url: string | undefined) => {
   if (!url) return;
 
   setLoading(true);
   try {
-   const rs = await services.nextPageImages(url);
-   setPhotos(rs.data?.photos);
+   const rs = await services.nextPageVideos(url);
+   setVideos(rs.data?.videos);
    setNumsResults(rs.data?.total_results);
    setPrevPage(rs.data?.prev_page);
    setNumPage(rs.data?.page);
@@ -68,17 +69,16 @@ const useImagesPexel = () => {
  };
 
  return {
-  photos,
+  videos,
   loading,
   search,
   numsResults,
   nextPage,
   prevPage,
   numPage,
-  fecthImagesPrevPage,
-  fecthImagesNextPage,
-  fecthImages,
+  fetchVideosPrevPage,
+  fetchVideosNextPage,
+  fetchVideos,
  };
 };
-
-export { useImagesPexel };
+export { useVideoPexel };

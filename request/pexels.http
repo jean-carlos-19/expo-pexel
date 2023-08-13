@@ -1,2 +1,2 @@
 curl -H "Authorization: EQvFvaEwRfpWkTKk8mpzGX0Z0WpqiCyJI0sOuJyhalTtXBDlSL0lb7tI" \
-  "https://api.pexels.com/v1/search/?page=2&per_page=15&query=people"
+  "https://api.pexels.com/videos/search?query=nature"

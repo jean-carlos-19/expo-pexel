@@ -1,18 +1,9 @@
-import {
- View,
- Text,
- TouchableOpacity,
- ImageBackground,
- ActivityIndicator,
-} from "react-native";
+import { View, Text, TouchableOpacity, ImageBackground, ActivityIndicator } from "react-native";
 import React from "react";
 import { Avatar } from "@rneui/themed";
 import { RootStackParamList } from "@/types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import {
- ArrowLeftCircleIcon,
- ArrowDownTrayIcon,
-} from "react-native-heroicons/solid";
+import { ArrowLeftCircleIcon, ArrowDownTrayIcon } from "react-native-heroicons/solid";
 import { useNavigation } from "@react-navigation/native";
 import { useImagesPexel, useLoading, useProfile } from "@/hooks";
 import { ImageList } from "@/atomic/component";
@@ -33,10 +24,7 @@ const ImageScreen = ({ route }: Props) => {
      <ArrowLeftCircleIcon size={50} color={"#333"} />
     </TouchableOpacity>
     <View className="flex-row justify-center items-center">
-     <Text className="text-gray-700 font-semibold text-xs mr-2">
-      {" "}
-      {photographer.toUpperCase()}{" "}
-     </Text>
+     <Text className="text-gray-700 font-semibold text-xs mr-2">{photographer.toUpperCase()}</Text>
      <Avatar
       title={photographer
        .split(" ")

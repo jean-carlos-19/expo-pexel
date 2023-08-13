@@ -14,12 +14,7 @@ function NavBar(props: NavBarProps) {
   <>
    <View className="px-2 flex-row items-center justify-between">
     <View className="flex-row items-center">
-     <Image
-      className="w-20 h-20"
-      source={require("../../assets/pexel-logo.png")}
-      width={25}
-      height={25}
-     />
+     <Image className="w-20 h-20" source={require("../../assets/pexel-logo.png")} width={25} height={25} />
      <Text className="font-semibold text-xl">Pexels App</Text>
     </View>
     <TouchableOpacity onPress={() => setActive(!isActive)}>

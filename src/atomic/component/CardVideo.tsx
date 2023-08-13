@@ -1,23 +1,23 @@
 import React from "react";
 import { ActivityIndicator, ImageBackground, TouchableOpacity } from "react-native";
-import { CardImageProps } from "@/types";
+import { CardVideoProps } from "@/types";
 import { useNavigation } from "@react-navigation/native";
 import { useLoading } from "@/hooks";
 
-const CardImage = (props: CardImageProps) => {
- const { image } = props;
+const CardVideo = (props: CardVideoProps) => {
+ const { video } = props;
  const navigation = useNavigation();
  const { loading, setLoading } = useLoading(true);
 
  return (
   <TouchableOpacity
    className="w-[50%] h-full flex-row justify-between rounded-xl"
-   onPress={() => navigation.navigate("Profile", { data: image, type: "photo" })}
+   onPress={() => navigation.navigate("Profile", { data: video, type: "video" })}
   >
    <ImageBackground
     className="h-[180] flex-col items-center justify-center"
     source={{
-     uri: image.src.small && image.src.original,
+     uri: video.image,
     }}
     style={{ width: "100%" }}
     onLoadEnd={() => setLoading(false)}
@@ -29,4 +29,4 @@ const CardImage = (props: CardImageProps) => {
  );
 };
 
-export { CardImage };
+export { CardVideo };

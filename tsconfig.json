@@ -14,6 +14,6 @@
       "@/atomic/design": ["./src/atomic/design"],
       "@/hooks": ["./src/hooks"],
       "@/validation": ["./src/validation"],
-    }
+    },
   },
 }
