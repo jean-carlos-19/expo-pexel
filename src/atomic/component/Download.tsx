@@ -1,21 +1,20 @@
 import { DownloadProps } from "@/types";
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { ArrowDownTrayIcon } from "react-native-heroicons/solid";
 
 const Download = (props: DownloadProps) => {
  const { url, id, handleDownload } = props;
  return (
-  <View className="p-2 flex-row justify-end items-center space-x-2">
-   <Text className="font-semibold text-xl text-gray-700"> Download </Text>
    <TouchableOpacity
+    className="p-2 flex-row justify-end items-center space-x-2"
     onPress={() => {
-     handleDownload(url, `${id}`);
+        handleDownload(url, `${id}`);
     }}
    >
+    <Text className="font-semibold text-xl text-gray-700"> Download </Text>
     <ArrowDownTrayIcon size={30} color={"rgb(55,65,81)"} />
    </TouchableOpacity>
-  </View>
  );
 };
 

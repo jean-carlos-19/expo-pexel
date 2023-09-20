@@ -1,14 +1,16 @@
-import { useLoading } from "@/hooks";
-import { BackgroundProps } from "@/types";
 import React from "react";
 import { ActivityIndicator, ImageBackground } from "react-native";
+import { useLoading } from "@/hooks";
+import { BackgroundProps } from "@/types";
+import { PlayIcon } from "react-native-heroicons/solid";
 
 const Background = (props: BackgroundProps) => {
- const { url } = props;
+ const { className, type, url, alt } = props;
  const { loading, setLoading } = useLoading(true);
  return (
   <ImageBackground
-   className="h-[180] flex-col items-center justify-center"
+   alt={alt}
+   className={className}
    source={{
     uri: url,
    }}
@@ -20,7 +22,7 @@ const Background = (props: BackgroundProps) => {
    onLoadEnd={() => setLoading(false)}
    resizeMode="cover"
   >
-   {loading ? <ActivityIndicator size="large" color="#333" /> : null}
+   {loading ? <ActivityIndicator size={50} color="#333" /> : type === "video" ? <PlayIcon color={"#f2f2f2"} size={100} /> : null}
   </ImageBackground>
  );
 };

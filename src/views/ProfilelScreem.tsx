@@ -3,7 +3,7 @@ import React from "react";
 import { RootStackParamList } from "@/types";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useImagesPexel, useProfile, useVideoPexel } from "@/hooks";
-import { List, HeaderProfile, Download, CustomVideo } from "@/atomic/component";
+import { List, HeaderProfile, Download } from "@/atomic/component";
 import { Background } from "@/atomic/element";
 import { PhotoModel, VideoModel } from "@/models";
 
@@ -22,15 +22,14 @@ const ProfilelScreem = ({ route }: Props) => {
     {type === "photo" ? (
      <>
       <HeaderProfile name={(data as PhotoModel).photographer} url={(data as PhotoModel).photographer_url} handleProfile={handleProfile} />
-      <Background url={(data as PhotoModel).src.portrait} />
+      <Background className="h-[180] flex-col items-center justify-center" url={(data as PhotoModel).src.portrait} alt={(data as PhotoModel).alt} type="photo" />
       <Download id={`${(data as PhotoModel).id}`} url={(data as PhotoModel).src.original} handleDownload={handleDownload} />
       <List data={photos?.filter((photo) => photo.id !== (data as PhotoModel).id)} numsResults={numsResults} type={"photo"} />
      </>
     ) : (
      <>
       <HeaderProfile name={(data as VideoModel).user.name} url={(data as VideoModel).user.url} handleProfile={handleProfile} />
-      <CustomVideo url={(data as VideoModel).url} />
-      <Download id={`${(data as VideoModel).id}`} url={(data as VideoModel).url} handleDownload={handleDownload} />
+      <Background  className="h-[180] flex-col items-center justify-center" url={(data as VideoModel).image} alt={""} type="video" />
       <List data={videos?.filter((videos) => videos.id !== (data as VideoModel).id)} numsResults={numsResults} type={"video"} />
      </>
     )}

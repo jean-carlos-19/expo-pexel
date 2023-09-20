@@ -14,7 +14,7 @@ const VideoScreem = () => {
  return (
   <>
    <StatusBar backgroundColor={"white"} />
-   <Loading state={loading} sms={`Looking for the image ${search} `} />
+   <Loading state={loading} sms={`Looking for the video ${search} `} />
    <View className="w-full h-full flex flex-col justify-between bg-white">
     <Form entity={entity} fecthImages={fetchVideos} />
     <List data={videos} numsResults={numsResults} type="video" />

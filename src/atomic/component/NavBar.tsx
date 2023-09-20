@@ -3,7 +3,7 @@ import React from "react";
 import { View, Image, Text, TouchableOpacity } from "react-native";
 import { MagnifyingGlassIcon } from "react-native-heroicons/solid";
 import { NavBarProps } from "@/types";
-import { Modal } from "./Modal";
+import { SearchForm } from "./SearchForm";
 
 function NavBar(props: NavBarProps) {
  const { value, handleChangue, handleBlur, handleSubmit } = props;
@@ -21,7 +21,7 @@ function NavBar(props: NavBarProps) {
      <MagnifyingGlassIcon size={35} color={"black"} />
     </TouchableOpacity>
    </View>
-   <Modal
+   <SearchForm
     isActiveModal={isActive}
     value={value}
     closeModal={() => {

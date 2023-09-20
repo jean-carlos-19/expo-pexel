@@ -15,7 +15,7 @@ interface CardVideoProps {
  video: VideoModel;
 }
 
-interface ModalProps {
+interface SearchFormProps {
  value: string | undefined;
  isActiveModal: boolean;
  handleChangue: (e: string | React.ChangeEvent) => void;
@@ -52,7 +52,10 @@ interface HeaderProfileProps {
  handleProfile: (url: string) => void;
 }
 interface BackgroundProps {
+ className: string;
+ alt:string;
  url: string;
+ type: "photo" | "video";
 }
 interface DownloadProps {
  url: string;
@@ -67,7 +70,9 @@ interface LayoutRowProps {
 interface VideoProps {
  url: string;
 }
-
+interface ModalProps {
+ state: boolean;
+}
 /* Rotes of app */
 type RootStackParamList = {
  Image: undefined;
@@ -82,7 +87,7 @@ export type {
  CardImageProps,
  CardVideoProps,
  RootStackParamList,
- ModalProps,
+ SearchFormProps,
  NavBarProps,
  LoadingProps,
  CustomButtonProps,
@@ -93,4 +98,5 @@ export type {
  DownloadProps,
  LayoutRowProps,
  VideoProps,
+ ModalProps,
 };
