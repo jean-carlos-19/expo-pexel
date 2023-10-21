@@ -17,11 +17,11 @@
     "Axios",
     "Typescript"
   ],
-  "demo": "https://piguavejc-portfolio-master.onrender.com/",
+  "demo": "https://piguavesof.com",
   "author": {
     "name": "Jean Carlos Piguave Alvarado",
     "email": "piguavejc@gmail.com",
-    "url": "https://piguavesof.com"
+    "url": "https://github.com/jean-carlos-19"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,9 @@
     "web": "expo start --web",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json}",
-    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettier.json"
+    "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettier.json",
+    "build-dev":"eas build -p android --profile development",
+    "build-prod":"eas build -p android --profile production"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.8",
@@ -48,6 +50,7 @@
     "axios": "^1.4.0",
     "expo": "~49.0.5",
     "expo-av": "~13.4.1",
+    "expo-dev-client": "~2.4.11",
     "expo-file-system": "~15.4.3",
     "expo-media-library": "~15.4.1",
     "expo-status-bar": "~1.6.0",
